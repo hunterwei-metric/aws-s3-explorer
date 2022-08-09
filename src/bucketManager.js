@@ -71,9 +71,9 @@ export async function fetchBucketObjectsExplicit(directory, findAllMatching = fa
       type: 'PATH'
     })));
 
-    if (currentBucketInvocationIdentifier !== thisInvocationIdentifier) {
-      break;
-    }
+    // if (currentBucketInvocationIdentifier !== thisInvocationIdentifier) {
+    //   break;
+    // }
     
     fullResultList = (fullResultList || []).concat(partialResultList);
     if (populateBucketObjects) {
@@ -130,9 +130,11 @@ export async function downloadObjects(bucket, keys) {
       await downloadObject(key);
     }
 
-    const bucketObjects = await fetchBucketObjectsExplicit(key, true);
-    const additionalObjectKeys = bucketObjects.map(b => b.key);
-    await Promise.all(additionalObjectKeys.map(additionalKey => downloadObject(additionalKey)));
+    if (object.type === 'DIRECTORY') {
+      const bucketObjects = await fetchBucketObjectsExplicit(key, true);
+      const additionalObjectKeys = bucketObjects.map(b => b.key);
+      await Promise.all(additionalObjectKeys.map(additionalKey => downloadObject(additionalKey)));
+    }
   }));
 
   if (blobs.length === 1) {
