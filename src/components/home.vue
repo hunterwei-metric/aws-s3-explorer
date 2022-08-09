@@ -39,7 +39,6 @@
                 <span style="cursor: pointer;" class="btn fa fa-sync fa-2x" :class="{ 'fa-spin': state.loading }" @click="refresh()" title="Reload the directory" />
               </div>
               <span style="cursor: pointer;" class="btn fa fa-sign-out-alt fa-2x" @click="logout()" title="Logout" />
-              <span style="cursor: pointer;" class="btn fa" @click="openGithub()" title="Check out the source at Github.com"><img src="../assets/github-logo.svg" height="28"></span>
             </div>
           </div>
         </div>
@@ -155,7 +154,6 @@
       <UploadModal v-if="store.showUploads" :filesToUpload="state.filesToUpload" @uploadsCompleted="uploadsCompleted" />
     </div>
 
-    <PoweredBy />
   </DropzoneWrapper>
 </template>
 
@@ -169,7 +167,6 @@ import BucketSelectorModal from './bucketSelectorModal.vue';
 import AddFolderModal from './addFolderModal.vue';
 import TrashModal from './trashModal.vue';
 import UploadModal from './uploadModal.vue';
-import PoweredBy from './poweredBy.vue';
 import DropzoneWrapper from './dropzoneWrapper.vue';
 import Loader from './loader.vue';
 
@@ -283,7 +280,6 @@ const pathParts = computed(() => {
   return store.currentDirectory && store.currentDirectory.split(store.delimiter) || [];
 });
 
-const openGithub = () => { window.open('https://github.com/Rhosys/aws-s3-explorer#aws-s3-explorer', '_blank'); };
 
 const globalSelectWatcher = computed(() => state.globalSelect);
 
