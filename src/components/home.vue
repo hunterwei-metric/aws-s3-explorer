@@ -9,7 +9,7 @@
           <!-- Bucket selection and breadcrumbs -->
           <div style="display: flex; direction: row; align-items: center">
             <div class="title d-flex" style="align-items: center">
-              <h4>AWS S3 Explorer</h4>
+              <h4>Shared File Explorer</h4>
             </div>
             <!-- Bucket breadcrumbs -->
             <div class="" v-if="store.tokens && store.currentBucket" style="margin-right: 0.5rem;">
