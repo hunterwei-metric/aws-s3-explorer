@@ -37,7 +37,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div v-if="state.showError === 'CORS'">
                   <ul class="nav nav-tabs" data-tabs="tabs">
                   <li role="presentation" class="active"><a href="#cors" data-toggle="tab">CORS</a></li>
@@ -62,7 +62,7 @@
                   <div id="my-tab-content" class="tab-content">
                     <div class="tab-pane active" id="cors">
                       <p>The role you are using is not configured to allow access to this bucket.</p>
-                      <p>To configure permissions, update the IAM role (<strong>{{ store.userRoleId}}</strong>) created as part of the S3 Explorer setup.
+                      <p>To configure permissions, update the IAM role (<strong>{{ store.userRoleId }}</strong>) created as part of the S3 Explorer setup.
                       The dedicated role should grant permissions similar the following:</p>
                       <p>
                         <pre>{{ JSON.stringify(state.suggestedBucketPolicy, null, 2) }}</pre>
