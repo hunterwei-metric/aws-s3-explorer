@@ -1,5 +1,12 @@
+# Discarding
+/*.iml
 # Default ignored files
 /shelf/
 /workspace.xml
+/modules.xml
+/vcs.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+# Retaining
+!codeStyles/*.xml
