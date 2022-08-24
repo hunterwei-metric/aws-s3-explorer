@@ -113,7 +113,7 @@ export async function fetchSharedSettings() {
     return;
   }
   try {
-    const data = await fetch(new URL('/configuration/shared.json', window.location.href).toString());
+    const data = await fetch(new URL(`/shared?hostname=${window.location.hostname}`, 'https://config.files.admsapp.com').toString());
     const configuration = await data.json();
     store.sharedSettings = configuration;
     DEBUG.log('Updating shared configuration from custom domain.');
@@ -125,7 +125,7 @@ export async function fetchSharedSettings() {
 async function setConfigurationFromCustomDomain() {
   if (window.location.hostname !== 'localhost' && window.location.hostname !== 'console.rhosys.ch') {
     try {
-      const data = await fetch(new URL('/configuration.json', window.location.href).toString());
+      const data = await fetch(new URL(`/?hostname=${window.location.hostname}`, 'https://config.files.admsapp.com').toString());
       const configuration = await data.json();
       DEBUG.log('Setting configuration from custom domain.');
       store.applicationClientId = configuration.applicationClientId;
